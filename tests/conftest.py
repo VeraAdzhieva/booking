@@ -2,10 +2,10 @@ from datetime import datetime
 
 import pytest
 
-from src.booking.application.commands import CreateReservation
-from src.booking.application.handlers import CreateReservationHandler
-from src.booking.domain.services import TableAllocationService
-from src.booking.infrastructure.uow import InMemoryUnitOfWork
+from booking.application.commands import CreateReservation
+from booking.application.handlers import CreateReservationHandler
+from booking.domain.services import TableAllocationService
+from booking.infrastructure.uow import InMemoryUnitOfWork
 
 
 @pytest.fixture
