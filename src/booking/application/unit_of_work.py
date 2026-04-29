@@ -8,8 +8,8 @@ from booking.domain.repository import ReservationRepository, TablesRepository
 
 # Unit of Work Port (выходной порт)
 class UnitOfWork(Protocol):
-    reservations: Optional[ReservationRepository]
-    tables: Optional[TablesRepository]
+    reservations: ReservationRepository
+    tables: TablesRepository
 
     def __enter__(self) -> "UnitOfWork":
         pass

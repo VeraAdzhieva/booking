@@ -32,7 +32,6 @@ class CreateReservationHandler:
         reservation = reservation_agg.root
 
         with self.uow:
-            assert self.uow.tables is not None
             tables = self.uow.tables.get_free_tables(reservation.slot)
             table_id = self.allocator.allocate(reservation, tables)
             reservation_agg.assign_table(table_id)
@@ -55,7 +54,6 @@ class CancelReservationHandler:
 
     def __call__(self, cmd: CancelReservation) -> bool:
         with self.uow:
-            assert self.uow.reservations is not None
             reservation_agg = self.uow.reservations.get(cmd.reservation_id)
             if not reservation_agg:
                 raise ValueError("Бронь не найдена")
@@ -76,7 +74,6 @@ class CompletedReservationHandler:
 
     def __call__(self, cmd: CompletedReservation) -> bool:
         with self.uow:
-            assert self.uow.reservations is not None
             reservation_agg = self.uow.reservations.get(cmd.reservation_id)
             if not reservation_agg:
                 raise ValueError("Бронь не найдена")
@@ -97,7 +94,6 @@ class ChangeTimeSlotReservationHandler:
 
     def __call__(self, cmd: ChangeTimeSlotReservation) -> bool:
         with self.uow:
-            assert self.uow.reservations is not None
             reservation_agg = self.uow.reservations.get(cmd.reservation_id)
             if not reservation_agg:
                 raise ValueError("Бронь не найдена")
