@@ -45,9 +45,9 @@ class InMemoryUnitOfWork(UnitOfWork):
 class SqlAlchemyUnitOfWork(UnitOfWork):
     def __init__(self, session_factory: sessionmaker):
         self._session_factory = session_factory
-        self.session: Optional[Session] = None
-        self.reservations: Optional[SqlAlchemyReservationRepository] = None
-        self.tables: Optional[SqlAlchemyTablesRepository] = None
+       # self.session: Optional[Session] = None
+       # self.reservations: Optional[SqlAlchemyReservationRepository] = None
+       # self.tables: Optional[SqlAlchemyTablesRepository] = None
 
     def __enter__(self) -> "SqlAlchemyUnitOfWork":
         self.session = self._session_factory()

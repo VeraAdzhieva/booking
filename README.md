@@ -1,5 +1,13 @@
 # Restaurant Booking (DDD + Clean Architecture)
 
+## Запуск 
+Запуск сервера: ```poetry run uvicorn booking.entrypoints.fastapi_app:app --reload```
+Переход на ```http://127.0.0.1:8000/docs```
+Выполнение запросов: 
+ - /reservations - Создание брони
+ - /cancel_reservation - Отмена брони
+ - /mark_completed - Закрыть бронь
+ - /change_timeslot - Изменение времени бронирования
 
 ## Структура
 - `src/booking/domain` — доменная модель (Entity/VO/Aggregate Root), инварианты, события, доменные сервисы, порты (Repository).
